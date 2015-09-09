@@ -32,5 +32,10 @@ entity
 pronoun
 cluster
 
+===========
+License
+===========
 
+This software is licensed under GPLv3. It includes the Stanford POS tagger
+released under GPLv2+: http://nlp.stanford.edu/software/tagger.shtml
 
