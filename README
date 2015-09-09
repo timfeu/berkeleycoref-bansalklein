@@ -1,0 +1,36 @@
+This software extracts the features described in the following paper:
+
+"Coreference semantics from web features"
+Mohit Bansal and Dan Klein. Proceedings of ACL 2012.
+
+to be used with the Berkeley Coreference Resolution System described in:
+
+"Easy Victories and Uphill Battles in Coreference Resolution"
+Greg Durrett and Dan Klein. EMNLP 2013.
+
+A modified version of the Berkeley system supporting these features can be found at https://github.com/timfeu/berkeleycoref-thesaurus
+
+==========
+Build
+==========
+
+Use Apache Ant (http://ant.apache.org) to build a fat jar:
+
+ant jar
+
+==========
+Run
+==========
+
+java -jar build/jar/runnable_wrapper_and_data.jar mode [options]
+
+Where mode is one of the following:
+
+generalCoOccurrence
+hearst
+entity
+pronoun
+cluster
+
+
+

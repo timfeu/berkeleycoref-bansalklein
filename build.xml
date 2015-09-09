@@ -1,0 +1,45 @@
+<project>
+
+    <property name="ant.build.javac.source" value="1.7"/>
+    <property name="ant.build.javac.target" value="1.7"/>
+    <property name="dist.lib.dir" location="build/lib" />
+    <property name="lib.dir" value="lib" />
+
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+
+    <target name="copy-dependencies">
+
+        <mkdir dir="${dist.lib.dir}" />
+
+        <jar jarfile="${dist.lib.dir}/dependencies-all.jar">
+            <zipgroupfileset dir="${lib.dir}">
+                <include name="**/*.jar" />
+            </zipgroupfileset>
+        </jar>
+
+    </target>
+
+    <path id="classpath">
+        <fileset dir="${basedir}/">
+            <include name="${lib.dir}/*.jar" />
+        </fileset>
+    </path>
+
+    <target name="compile">
+        <mkdir dir="build/classes"/>
+        <javac srcdir="code" target="1.7" destdir="build/classes" classpathref="classpath" debug="true" debuglevel="lines,vars,source" />
+    </target>
+
+    <target name="jar" depends="compile, copy-dependencies">
+        <mkdir dir="build/jar"/>
+        <mkdir dir="${dist.lib.dir}" />
+        <jar jarfile="build/jar/runnable_wrapper_and_data.jar" basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="feature_test.Main"/>
+            </manifest>
+            <zipfileset src="${dist.lib.dir}/dependencies-all.jar" excludes="META-INF/*.SF" />
+        </jar>
+    </target>
+</project>

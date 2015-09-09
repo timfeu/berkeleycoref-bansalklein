@@ -1,0 +1,6 @@
+10 20 50
+5 20
+toy boss false false false M1 M1
+president Bush false false false M1 M1
+president toy false false false M1 M1
+toy item true true true JJ JJ

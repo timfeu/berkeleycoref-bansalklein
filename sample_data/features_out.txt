@@ -1,0 +1,4 @@
+toy item --> -2
+toy boss --> 0
+president Bush --> -3
+president toy --> M1
